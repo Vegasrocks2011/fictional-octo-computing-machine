@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reflection & Refraction — Year 10 Pearson Edexcel IGCSE Physics</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f0f4f8;color:#1a1a1a;font-size:15px;line-height:1.6}
+.app{max-width:940px;margin:0 auto;padding:1.5rem 1rem 3rem}
+
+.header{background:linear-gradient(135deg,#0f766e 0%,#0d9488 60%,#14b8a6 100%);border-radius:14px;padding:1.4rem 1.8rem;margin-bottom:22px;color:#fff}
+.header h1{font-size:22px;font-weight:700;margin-bottom:4px}
+.header p{font-size:13px;opacity:.85}
+.spec-tag{display:inline-block;background:rgba(255,255,255,.2);border-radius:6px;padding:2px 10px;font-size:12px;font-weight:600;margin-top:8px}
+
+.nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:22px}
+.nb{padding:8px 16px;font-size:13px;border:none;border-radius:8px;background:#fff;color:#374151;cursor:pointer;font-family:inherit;font-weight:500;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.nb:hover{background:#f3f4f6}
+.nb.on{background:#0f766e;color:#fff;box-shadow:0 2px 6px rgba(15,118,110,.4)}
+
+.pg{display:none}.pg.on{display:block}
+
+.card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:1rem 1.3rem;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.c-blue{border-left:4px solid #3b82f6}
+.c-teal{border-left:4px solid #0d9488}
+.c-purple{border-left:4px solid #8b5cf6}
+.c-amber{border-left:4px solid #f59e0b}
+.c-red{border-left:4px solid #ef4444}
+.c-green{border-left:4px solid #22c55e}
+.c-coral{border-left:4px solid #f97316}
+.c-indigo{border-left:4px solid #6366f1}
+.c-pink{border-left:4px solid #ec4899}
+.c-sky{border-left:4px solid #0ea5e9}
+.c-rose{border-left:4px solid #f43f5e}
+
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+
+.bdg{display:inline-block;padding:2px 10px;border-radius:6px;font-size:12px;font-weight:600;margin-bottom:7px}
+.b-blue{background:#dbeafe;color:#1e40af}.b-teal{background:#ccfbf1;color:#0f766e}
+.b-purple{background:#ede9fe;color:#6d28d9}.b-amber{background:#fef3c7;color:#92400e}
+.b-red{background:#fee2e2;color:#991b1b}.b-green{background:#dcfce7;color:#166534}
+.b-coral{background:#ffedd5;color:#9a3412}.b-sky{background:#e0f2fe;color:#075985}
+.b-pink{background:#fce7f3;color:#9d174d}.b-indigo{background:#e0e7ff;color:#3730a3}
+.b-rose{background:#ffe4e6;color:#9f1239}
+
+.fbox{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 14px;font-size:16px;font-weight:700;text-align:center;margin:8px 0}
+.fbox-sm{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:6px 12px;font-size:13px;font-weight:700;text-align:center;margin:5px 0}
+
+.row{display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid #f3f4f6}
+.row:last-child{border-bottom:none}
+.tm{font-weight:600;font-size:13px;min-width:165px;flex-shrink:0;color:#111}
+.df{font-size:13px;color:#4b5563;line-height:1.5}
+
+.st{font-size:11px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px;margin-top:18px}
+.divider{border:none;border-top:2px solid #f1f5f9;margin:24px 0}
+
+.topic-banner{border-radius:10px;padding:9px 16px;font-size:14px;font-weight:700;color:#fff;margin:20px 0 13px;display:flex;align-items:center;gap:10px}
+.tb1{background:linear-gradient(90deg,#1e40af,#3b82f6)}
+.tb2{background:linear-gradient(90deg,#0f766e,#14b8a6)}
+.tb3{background:linear-gradient(90deg,#6d28d9,#8b5cf6)}
+.tb4{background:linear-gradient(90deg,#92400e,#f59e0b)}
+.tb5{background:linear-gradient(90deg,#9f1239,#f43f5e)}
+.tb6{background:linear-gradient(90deg,#3730a3,#6366f1)}
+
+.warn{background:#fef2f2;border-left:4px solid #ef4444;border-radius:0 8px 8px 0;padding:9px 14px;font-size:13px;color:#991b1b;margin-top:9px;line-height:1.5}
+.info{background:#eff6ff;border-left:4px solid #3b82f6;border-radius:0 8px 8px 0;padding:9px 14px;font-size:13px;color:#1e40af;margin-top:9px;line-height:1.5}
+.success{background:#f0fdf4;border-left:4px solid #22c55e;border-radius:0 8px 8px 0;padding:9px 14px;font-size:13px;color:#166534;margin-top:9px;line-height:1.5}
+.amber-box{background:#fffbeb;border-left:4px solid #f59e0b;border-radius:0 8px 8px 0;padding:9px 14px;font-size:13px;color:#92400e;margin-top:9px;line-height:1.5}
+
+.diagram-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:12px 0}
+.diagram-box{background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:14px;text-align:center}
+.diagram-title{font-size:13px;font-weight:700;color:#111;margin-bottom:8px}
+.diagram-note{font-size:12px;color:#6b7280;margin-top:8px;line-height:1.45}
+
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;padding:9px 10px;font-weight:600;border-bottom:2px solid #e5e7eb;background:#f9fafb;color:#374151}
+td{padding:8px 10px;border-bottom:1px solid #f3f4f6;vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#fafafa}
+
+/* RAG */
+.rag-section{margin-bottom:18px}
+.rag-header{font-size:14px;font-weight:700;padding:9px 15px;border-radius:8px 8px 0 0;color:#fff}
+.rag-body{background:#fff;border:1px solid #e5e7eb;border-top:none;border-radius:0 0 10px 10px;overflow:hidden}
+.rag-row{display:flex;align-items:center;justify-content:space-between;padding:10px 15px;border-bottom:1px solid #f3f4f6;flex-wrap:wrap;gap:8px}
+.rag-row:last-child{border-bottom:none}
+.rag-skill{font-size:13px;flex:1;min-width:200px;line-height:1.4;color:#374151}
+.rag-btns{display:flex;gap:5px;flex-shrink:0}
+.rb2{padding:5px 14px;font-size:12px;border:1.5px solid #d1d5db;border-radius:6px;background:#f9fafb;cursor:pointer;font-family:inherit;font-weight:700;transition:all .15s}
+.rb2:hover{opacity:.85}
+.rg{background:#16a34a;color:#fff;border-color:#16a34a}
+.ra{background:#d97706;color:#fff;border-color:#d97706}
+.rr{background:#dc2626;color:#fff;border-color:#dc2626}
+
+/* MCQ */
+.qb{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:1.1rem 1.3rem;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.q-num{font-size:11px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.qt{font-size:14px;color:#111;margin-bottom:12px;line-height:1.6;font-weight:500}
+.ob{display:block;width:100%;text-align:left;padding:9px 14px;margin-bottom:6px;font-size:13px;border:1.5px solid #e5e7eb;border-radius:8px;background:#f9fafb;color:#374151;cursor:pointer;font-family:inherit;transition:all .15s}
+.ob:hover:not(:disabled){background:#f0fdfa;border-color:#99f6e4}
+.ob:disabled{cursor:default}
+.oc{background:#f0fdf4;color:#166534;border-color:#86efac;font-weight:600}
+.ow{background:#fef2f2;color:#991b1b;border-color:#fca5a5}
+.orc{background:#f0fdf4;color:#166534;border-color:#86efac}
+.fb{font-size:13px;margin-top:9px;padding:9px 13px;border-radius:8px;line-height:1.5;display:none}
+.fb.on{display:block}
+.fbc{background:#f0fdf4;color:#166534;border-left:3px solid #22c55e}
+.fbw{background:#fef2f2;color:#991b1b;border-left:3px solid #ef4444}
+
+/* EXAM QUESTIONS */
+.eq-wrap{margin-bottom:18px}
+.eq-box{background:#fff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.eq-header{background:linear-gradient(90deg,#0f766e,#0d9488);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.eq-num{font-size:13px;font-weight:700;color:#fff}
+.eq-marks{background:rgba(255,255,255,.2);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:12px}
+.eq-diff{font-size:11px;padding:3px 10px;border-radius:12px;font-weight:700}
+.diff-1{background:#dcfce7;color:#166534}
+.diff-2{background:#fef3c7;color:#92400e}
+.diff-3{background:#fee2e2;color:#991b1b}
+.diff-4{background:#ede9fe;color:#6d28d9}
+.eq-body{padding:1.1rem 1.3rem}
+.eq-stem{font-size:14px;color:#111;line-height:1.65;margin-bottom:14px}
+.eq-stem p{margin-bottom:8px}
+.eq-parts{list-style:none}
+.eq-parts li{padding:8px 0;border-bottom:1px solid #f3f4f6;font-size:13px;color:#374151;line-height:1.55}
+.eq-parts li:last-child{border-bottom:none}
+.eq-parts .part-label{font-weight:700;color:#0f766e;margin-right:6px}
+.eq-parts .marks{float:right;font-weight:700;color:#6b7280;font-size:12px;background:#f3f4f6;padding:1px 8px;border-radius:10px}
+.answer-reveal{margin-top:12px;border-top:1px dashed #e5e7eb;padding-top:12px}
+.reveal-btn{display:flex;align-items:center;gap:6px;padding:7px 16px;font-size:13px;border:1.5px solid #0d9488;border-radius:8px;background:#f0fdfa;color:#0f766e;cursor:pointer;font-family:inherit;font-weight:600;transition:all .15s}
+.reveal-btn:hover{background:#ccfbf1}
+.answer-box{display:none;margin-top:10px;background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:10px 14px}
+.answer-box.on{display:block}
+.answer-box h4{font-size:12px;font-weight:700;color:#166534;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+.answer-box p{font-size:13px;color:#166534;line-height:1.65;margin-bottom:6px}
+.answer-box p:last-child{margin-bottom:0}
+.answer-box ul{margin-left:16px;font-size:13px;color:#166534;line-height:1.8}
+.answer-box .mark-scheme{font-size:12px;color:#15803d;font-style:italic;margin-top:6px;padding-top:6px;border-top:1px dashed #86efac}
+
+.ab{padding:10px 26px;font-size:14px;border:none;border-radius:8px;background:#0f766e;color:#fff;cursor:pointer;font-family:inherit;font-weight:600;box-shadow:0 2px 6px rgba(15,118,110,.3);transition:all .15s}
+.ab:hover{background:#0d6660}
+
+/* SUMMARY */
+.stat-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:1rem;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.stat-label{font-size:12px;color:#9ca3af;margin-bottom:6px;font-weight:500}
+.stat-val{font-size:26px;font-weight:700;color:#1a1a1a}
+.tr2{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid #f3f4f6;flex-wrap:wrap;gap:6px}
+.tr2:last-child{border-bottom:none}
+.pill{padding:3px 12px;border-radius:20px;font-size:12px;font-weight:600}
+.pig{background:#dcfce7;color:#166534}.pia{background:#fef3c7;color:#92400e}.pir{background:#fee2e2;color:#991b1b}
+.prog-wrap{background:#e5e7eb;border-radius:4px;height:7px;margin:5px 0 8px}
+.prog-bar{height:7px;border-radius:4px;transition:width .6s ease}
+
+@media(max-width:620px){.g2,.g3,.diagram-grid{grid-template-columns:1fr}.rag-row,.eq-header{flex-direction:column;align-items:flex-start}}
+@media print{.nav,.ab,.reveal-btn,.rag-btns{display:none}}
+</style>
+</head>
+<body>
+<div class="app">
+
+<div class="header">
+  <h1>Reflection &amp; Refraction</h1>
+  <p>Year 10 Physics · Pearson Edexcel International GCSE (Modular) · Interactive Revision Resource</p>
+  <span class="spec-tag">Unit 1 · Waves · Light &amp; Optics</span>
+</div>
+
+<div class="nav">
+  <button class="nb on" onclick="sp('ko')">📖 Knowledge Organiser</button>
+  <button class="nb" onclick="sp('sa')">✅ Self-Assessment</button>
+  <button class="nb" onclick="sp('mcq')">❓ Multiple Choice</button>
+  <button class="nb" onclick="sp('eq')">📝 Exam Questions</button>
+  <button class="nb" onclick="bs();sp('sm')">📊 My Summary</button>
+</div>
+
+<!-- ══════════════════════════ KNOWLEDGE ORGANISER ══════════════ -->
+<div class="pg on" id="pg-ko">
+
+<!-- TOPIC 1: REFLECTION -->
+<div class="topic-banner tb1">1 · Reflection — The Law of Reflection</div>
+
+<div class="st">Core definitions</div>
+<div class="card c-blue">
+  <span class="bdg b-blue">Key terms — reflection</span>
+  <div class="g2" style="margin-top:8px">
+    <div>
+      <div class="row"><span class="tm">Normal</span><span class="df">A line drawn <strong>perpendicular (90°) to the surface</strong> at the exact point where the light ray meets it. All angles in optics are measured from the normal — never from the surface itself.</span></div>
+      <div class="row"><span class="tm">Incident ray</span><span class="df">The ray of light travelling towards the reflecting surface, before it bounces off.</span></div>
+      <div class="row"><span class="tm">Reflected ray</span><span class="df">The ray of light bouncing away from the reflecting surface after reflection.</span></div>
+      <div class="row"><span class="tm">Angle of incidence (i)</span><span class="df">The angle between the incident ray and the normal. Measured from the normal.</span></div>
+      <div class="row"><span class="tm">Angle of reflection (r)</span><span class="df">The angle between the reflected ray and the normal. Always equals the angle of incidence.</span></div>
+    </div>
+    <div>
+      <div class="fbox" style="font-size:20px;margin-bottom:10px">i = r</div>
+      <p style="font-size:13px;color:#4b5563;margin-bottom:10px;line-height:1.6"><strong>The Law of Reflection:</strong><br><em>"The angle of incidence equals the angle of reflection. Both angles are measured from the normal at the point of incidence. The incident ray, normal and reflected ray all lie in the same plane."</em></p>
+      <div class="warn">⚠ Angles are ALWAYS measured from the NORMAL — not from the mirror surface. Measuring from the surface gives the complementary angle (90° − i), which is wrong.</div>
+    </div>
+  </div>
+</div>
+
+<div class="st">Reflection diagram — fully labelled</div>
+<div class="diagram-grid">
+  <div class="diagram-box">
+    <div class="diagram-title">Law of Reflection — plane mirror</div>
+    <svg viewBox="0 0 300 220" width="100%" style="max-width:300px;display:block;margin:0 auto">
+      <defs>
+        <marker id="ai" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#1e40af"/></marker>
+        <marker id="ar" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#dc2626"/></marker>
+        <marker id="an" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#9ca3af"/></marker>
+      </defs>
+      <!-- mirror -->
+      <line x1="20" y1="180" x2="280" y2="180" stroke="#374151" stroke-width="3"/>
+      <!-- hatching -->
+      <line x1="35" y1="180" x2="22" y2="196" stroke="#9ca3af" stroke-width="1.2"/><line x1="60" y1="180" x2="47" y2="196" stroke="#9ca3af" stroke-width="1.2"/>
+      <line x1="85" y1="180" x2="72" y2="196" stroke="#9ca3af" stroke-width="1.2"/><line x1="110" y1="180" x2="97" y2="196" stroke="#9ca3af" stroke-width="1.2"/>
+      <line x1="135" y1="180" x2="122" y2="196" stroke="#9ca3af" stroke-width="1.2"/><line x1="160" y1="180" x2="147" y2="196" stroke="#9ca3af" stroke-width="1.2"/>
+      <line x1="185" y1="180" x2="172" y2="196" stroke="#9ca3af" stroke-width="1.2"/><line x1="210" y1="180" x2="197" y2="196" stroke="#9ca3af" stroke-width="1.2"/>
+      <line x1="235" y1="180" x2="222" y2="196" stroke="#9ca3af" stroke-width="1.2"/><line x1="260" y1="180" x2="247" y2="196" stroke="#9ca3af" stroke-width="1.2"/>
+      <!-- normal dashed -->
+      <line x1="150" y1="8" x2="150" y2="180" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="5,4"/>
+      <!-- incident ray -->
+      <line x1="40" y1="25" x2="150" y2="180" stroke="#1e40af" stroke-width="2.5" marker-end="url(#ai)"/>
+      <!-- reflected ray -->
+      <line x1="150" y1="180" x2="260" y2="25" stroke="#dc2626" stroke-width="2.5" marker-end="url(#ar)"/>
+      <!-- angle arcs -->
+      <path d="M 126,160 A 30,30 0 0,1 150,145" stroke="#1e40af" stroke-width="2" fill="none"/>
+      <path d="M 150,145 A 30,30 0 0,1 174,160" stroke="#dc2626" stroke-width="2" fill="none"/>
+      <!-- labels -->
+      <text x="38" y="20" font-size="12" fill="#1e40af" font-family="system-ui" font-weight="700">Incident ray</text>
+      <text x="178" y="20" font-size="12" fill="#dc2626" font-family="system-ui" font-weight="700">Reflected ray</text>
+      <text x="157" y="18" font-size="11" fill="#9ca3af" font-family="system-ui">Normal</text>
+      <text x="108" y="158" font-size="13" fill="#1e40af" font-family="system-ui" font-weight="700">i</text>
+      <text x="182" y="158" font-size="13" fill="#dc2626" font-family="system-ui" font-weight="700">r</text>
+      <text x="90" y="210" font-size="11" fill="#374151" font-family="system-ui">Mirror (reflecting surface)</text>
+    </svg>
+    <p class="diagram-note">i = angle of incidence (from normal)<br>r = angle of reflection (from normal)<br><strong>i always equals r</strong></p>
+  </div>
+
+  <div class="diagram-box">
+    <div class="diagram-title">Regular vs Diffuse Reflection</div>
+    <svg viewBox="0 0 300 220" width="100%" style="max-width:300px;display:block;margin:0 auto">
+      <!-- LEFT: regular -->
+      <text x="38" y="18" font-size="11" fill="#1e40af" font-family="system-ui" font-weight="700">Regular (specular)</text>
+      <line x1="10" y1="100" x2="140" y2="100" stroke="#374151" stroke-width="2.5"/>
+      <line x1="25" y1="20" x2="55" y2="98" stroke="#1e40af" stroke-width="2"/>
+      <line x1="55" y1="98" x2="85" y2="20" stroke="#dc2626" stroke-width="2"/>
+      <line x1="60" y1="20" x2="90" y2="98" stroke="#1e40af" stroke-width="2"/>
+      <line x1="90" y1="98" x2="120" y2="20" stroke="#dc2626" stroke-width="2"/>
+      <text x="38" y="116" font-size="10" fill="#374151" font-family="system-ui">Smooth flat surface</text>
+      <text x="38" y="128" font-size="10" fill="#374151" font-family="system-ui">→ clear image formed</text>
+
+      <!-- RIGHT: diffuse -->
+      <text x="168" y="18" font-size="11" fill="#f97316" font-family="system-ui" font-weight="700">Diffuse reflection</text>
+      <path d="M150,100 Q165,94 178,102 Q192,95 205,103 Q218,96 230,101 Q243,95 255,100 Q268,96 280,100" stroke="#374151" stroke-width="2.5" fill="none"/>
+      <line x1="200" y1="20" x2="210" y2="96" stroke="#1e40af" stroke-width="2"/>
+      <line x1="210" y1="96" x2="185" y2="35" stroke="#dc2626" stroke-width="2"/>
+      <line x1="210" y1="96" x2="200" y2="30" stroke="#dc2626" stroke-width="2"/>
+      <line x1="210" y1="96" x2="235" y2="40" stroke="#dc2626" stroke-width="2"/>
+      <line x1="210" y1="96" x2="250" y2="50" stroke="#dc2626" stroke-width="2"/>
+      <line x1="210" y1="96" x2="165" y2="45" stroke="#dc2626" stroke-width="2"/>
+      <text x="165" y="116" font-size="10" fill="#374151" font-family="system-ui">Rough surface</text>
+      <text x="165" y="128" font-size="10" fill="#374151" font-family="system-ui">→ scattered, no clear image</text>
+
+      <!-- divider -->
+      <line x1="145" y1="10" x2="145" y2="140" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4,3"/>
+    </svg>
+    <p class="diagram-note">Law of reflection still holds at every point on a rough surface — but the surface is uneven so rays scatter in all directions.</p>
+  </div>
+</div>
+
+<div class="st">Images in plane mirrors</div>
+<div class="card c-indigo">
+  <span class="bdg b-indigo">Properties of images in a plane (flat) mirror</span>
+  <div class="g2" style="margin-top:8px">
+    <div>
+      <ul style="font-size:13px;color:#4b5563;margin-left:16px;line-height:2">
+        <li><strong>Virtual</strong> — light only appears to come from the image position; no light rays actually pass through it</li>
+        <li><strong>Same size</strong> as the object (magnification = 1)</li>
+        <li><strong>Same distance behind</strong> the mirror as the object is in front</li>
+        <li><strong>Upright</strong> — not inverted vertically</li>
+        <li><strong>Laterally inverted</strong> — left and right are swapped</li>
+      </ul>
+    </div>
+    <div>
+      <svg viewBox="0 0 240 160" width="100%" style="max-width:240px;display:block;margin:0 auto">
+        <defs><marker id="ao2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#6366f1"/></marker></defs>
+        <line x1="118" y1="10" x2="118" y2="150" stroke="#374151" stroke-width="3"/>
+        <line x1="118" y1="22" x2="128" y2="33" stroke="#9ca3af" stroke-width="1"/><line x1="118" y1="44" x2="128" y2="55" stroke="#9ca3af" stroke-width="1"/>
+        <line x1="118" y1="66" x2="128" y2="77" stroke="#9ca3af" stroke-width="1"/><line x1="118" y1="88" x2="128" y2="99" stroke="#9ca3af" stroke-width="1"/>
+        <line x1="118" y1="110" x2="128" y2="121" stroke="#9ca3af" stroke-width="1"/><line x1="118" y1="132" x2="128" y2="143" stroke="#9ca3af" stroke-width="1"/>
+        <!-- object -->
+        <rect x="28" y="55" width="16" height="50" fill="#1e40af" rx="3"/>
+        <text x="36" y="50" font-size="10" fill="#1e40af" text-anchor="middle" font-family="system-ui" font-weight="700">Object</text>
+        <!-- image dashed -->
+        <rect x="196" y="55" width="16" height="50" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="4,2" rx="3"/>
+        <text x="204" y="50" font-size="10" fill="#8b5cf6" text-anchor="middle" font-family="system-ui" font-weight="700">Image</text>
+        <!-- distance markers -->
+        <line x1="36" y1="145" x2="118" y2="145" stroke="#9ca3af" stroke-width="1.5"/>
+        <line x1="118" y1="145" x2="204" y2="145" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="4,2"/>
+        <text x="77" y="158" font-size="10" fill="#374151" text-anchor="middle" font-family="system-ui">d (object)</text>
+        <text x="161" y="158" font-size="10" fill="#6d28d9" text-anchor="middle" font-family="system-ui">d (image)</text>
+        <!-- rays -->
+        <line x1="36" y1="60" x2="118" y2="78" stroke="#6366f1" stroke-width="1.5" marker-end="url(#ao2)"/>
+        <line x1="36" y1="100" x2="118" y2="82" stroke="#6366f1" stroke-width="1.5" marker-end="url(#ao2)"/>
+      </svg>
+      <p style="font-size:12px;color:#6b7280;text-align:center;margin-top:4px">Object distance = Image distance from mirror</p>
+    </div>
+  </div>
+  <div class="info" style="margin-top:10px">To locate an image using ray diagrams: draw two rays from the object to the mirror (applying law of reflection for each). Extend the reflected rays behind the mirror with dashed lines. Where they meet = image position.</div>
+</div>
+
+<hr class="divider">
+
+<!-- TOPIC 2: REFRACTION -->
+<div class="topic-banner tb2">2 · Refraction — Bending of Light</div>
+
+<div class="st">What is refraction and why does it happen?</div>
+<div class="card c-teal">
+  <span class="bdg b-teal">Refraction — definition and cause</span>
+  <div class="g2" style="margin-top:8px">
+    <div>
+      <div class="row"><span class="tm">Refraction</span><span class="df">The <strong>change in direction</strong> (bending) of a wave as it crosses the boundary between two different media, caused by a <strong>change in the wave's speed</strong>.</span></div>
+      <div class="row"><span class="tm">Why it happens</span><span class="df">Light travels at different speeds in different materials. In a vacuum/air: 3 × 10⁸ m/s. In glass: ~2 × 10⁸ m/s. In water: ~2.25 × 10⁸ m/s. Slowing down at an angle causes bending.</span></div>
+      <div class="row"><span class="tm">Angle of refraction</span><span class="df">The angle between the refracted ray and the normal at the boundary, measured inside the new medium.</span></div>
+      <div class="row"><span class="tm">Optical density</span><span class="df">A measure of how much a medium slows light down. Glass is optically denser than air; air is optically denser than vacuum (barely).</span></div>
+    </div>
+    <div>
+      <div class="row"><span class="tm">Air → Glass (denser)</span><span class="df">Light slows down → <strong>bends TOWARD the normal</strong>. Angle of refraction &lt; angle of incidence.</span></div>
+      <div class="row"><span class="tm">Glass → Air (less dense)</span><span class="df">Light speeds up → <strong>bends AWAY from the normal</strong>. Angle of refraction &gt; angle of incidence.</span></div>
+      <div class="row"><span class="tm">Along the normal (i = 0°)</span><span class="df">Light hits the boundary at exactly 90° — it passes straight through with <strong>no bending</strong> at all.</span></div>
+      <div class="row"><span class="tm">Lateral displacement</span><span class="df">After passing through a parallel-sided block, the emergent ray is <strong>parallel to</strong> but displaced sideways from the incident ray.</span></div>
+    </div>
+  </div>
+  <div class="warn" style="margin-top:10px">⚠ Refraction is caused by a change in SPEED, not just a change in medium. If a wave crosses a boundary at 90° (along the normal), it changes speed but does NOT change direction.</div>
+</div>
+
+<div class="st">Refraction diagrams — all key cases</div>
+<div class="diagram-grid">
+  <div class="diagram-box">
+    <div class="diagram-title">Air → Glass: bends toward normal</div>
+    <svg viewBox="0 0 240 220" width="100%" style="max-width:240px;display:block;margin:0 auto">
+      <defs>
+        <marker id="ri1" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#1e40af"/></marker>
+        <marker id="rr1" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#dc2626"/></marker>
+      </defs>
+      <rect x="10" y="100" width="220" height="110" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="2" rx="4"/>
+      <text x="120" y="155" font-size="11" fill="#075985" text-anchor="middle" font-family="system-ui" font-weight="700">GLASS (denser)</text>
+      <text x="120" y="78" font-size="11" fill="#374151" text-anchor="middle" font-family="system-ui">AIR (less dense)</text>
+      <line x1="120" y1="5" x2="120" y2="215" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="5,4"/>
+      <line x1="30" y1="22" x2="120" y2="100" stroke="#1e40af" stroke-width="2.5" marker-end="url(#ri1)"/>
+      <line x1="120" y1="100" x2="145" y2="210" stroke="#dc2626" stroke-width="2.5" marker-end="url(#rr1)"/>
+      <path d="M 100,82 A 24,24 0 0,1 120,72" stroke="#1e40af" stroke-width="2" fill="none"/>
+      <path d="M 120,118 A 22,22 0 0,1 136,110" stroke="#dc2626" stroke-width="2" fill="none"/>
+      <text x="88" y="82" font-size="12" fill="#1e40af" font-family="system-ui" font-weight="700">i</text>
+      <text x="139" y="119" font-size="12" fill="#dc2626" font-family="system-ui" font-weight="700">r</text>
+      <text x="8" y="98" font-size="9" fill="#6b7280" font-family="system-ui">Boundary</text>
+    </svg>
+    <p class="diagram-note">Light slows down entering glass<br>Bends <strong>toward</strong> the normal<br>r &lt; i</p>
+  </div>
+
+  <div class="diagram-box">
+    <div class="diagram-title">Glass → Air: bends away from normal</div>
+    <svg viewBox="0 0 240 220" width="100%" style="max-width:240px;display:block;margin:0 auto">
+      <defs>
+        <marker id="ri2" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#1e40af"/></marker>
+        <marker id="rr2" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#dc2626"/></marker>
+      </defs>
+      <rect x="10" y="10" width="220" height="110" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="2" rx="4"/>
+      <text x="120" y="68" font-size="11" fill="#075985" text-anchor="middle" font-family="system-ui" font-weight="700">GLASS (denser)</text>
+      <text x="120" y="160" font-size="11" fill="#374151" text-anchor="middle" font-family="system-ui">AIR (less dense)</text>
+      <line x1="120" y1="5" x2="120" y2="215" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="5,4"/>
+      <line x1="92" y1="12" x2="120" y2="120" stroke="#1e40af" stroke-width="2.5" marker-end="url(#ri2)"/>
+      <line x1="120" y1="120" x2="200" y2="208" stroke="#dc2626" stroke-width="2.5" marker-end="url(#rr2)"/>
+      <path d="M 108,102 A 20,20 0 0,1 120,95" stroke="#1e40af" stroke-width="2" fill="none"/>
+      <path d="M 120,138 A 26,26 0 0,1 138,128" stroke="#dc2626" stroke-width="2" fill="none"/>
+      <text x="96" y="102" font-size="12" fill="#1e40af" font-family="system-ui" font-weight="700">i</text>
+      <text x="140" y="140" font-size="12" fill="#dc2626" font-family="system-ui" font-weight="700">r</text>
+      <text x="8" y="118" font-size="9" fill="#6b7280" font-family="system-ui">Boundary</text>
+    </svg>
+    <p class="diagram-note">Light speeds up leaving glass<br>Bends <strong>away</strong> from the normal<br>r &gt; i</p>
+  </div>
+
+  <div class="diagram-box">
+    <div class="diagram-title">Through a parallel-sided glass block</div>
+    <svg viewBox="0 0 300 200" width="100%" style="max-width:300px;display:block;margin:0 auto">
+      <defs>
+        <marker id="ri3" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#1e40af"/></marker>
+        <marker id="rr3" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#dc2626"/></marker>
+        <marker id="rg3" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#166534"/></marker>
+      </defs>
+      <rect x="80" y="55" width="140" height="90" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="2" rx="4"/>
+      <text x="150" y="105" font-size="11" fill="#075985" text-anchor="middle" font-family="system-ui" font-weight="700">GLASS</text>
+      <!-- normals -->
+      <line x1="115" y1="5" x2="115" y2="195" stroke="#9ca3af" stroke-width="1" stroke-dasharray="4,3"/>
+      <line x1="185" y1="5" x2="185" y2="195" stroke="#9ca3af" stroke-width="1" stroke-dasharray="4,3"/>
+      <!-- incident -->
+      <line x1="18" y1="12" x2="115" y2="55" stroke="#1e40af" stroke-width="2.5" marker-end="url(#ri3)"/>
+      <!-- inside glass -->
+      <line x1="115" y1="55" x2="185" y2="145" stroke="#dc2626" stroke-width="2.5"/>
+      <!-- emergent -->
+      <line x1="185" y1="145" x2="282" y2="188" stroke="#166534" stroke-width="2.5" marker-end="url(#rg3)"/>
+      <!-- lateral displacement arrow -->
+      <line x1="18" y1="35" x2="282" y2="35" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="18" y1="12" x2="18" y2="35" stroke="#f59e0b" stroke-width="1.5"/>
+      <line x1="282" y1="35" x2="282" y2="188" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="100" y="32" font-size="9" fill="#92400e" font-family="system-ui" font-weight="600">Lateral displacement</text>
+      <text x="14" y="8" font-size="10" fill="#1e40af" font-family="system-ui">Incident</text>
+      <text x="238" y="185" font-size="10" fill="#166534" font-family="system-ui">Emergent</text>
+    </svg>
+    <p class="diagram-note">Emergent ray is <strong>parallel</strong> to incident ray<br>but shifted sideways (lateral displacement)</p>
+  </div>
+
+  <div class="diagram-box">
+    <div class="diagram-title">No refraction: ray along the normal</div>
+    <svg viewBox="0 0 240 220" width="100%" style="max-width:240px;display:block;margin:0 auto">
+      <defs><marker id="rg4" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#166534"/></marker></defs>
+      <rect x="10" y="90" width="220" height="120" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="2" rx="4"/>
+      <text x="120" y="150" font-size="11" fill="#075985" text-anchor="middle" font-family="system-ui" font-weight="700">GLASS</text>
+      <text x="120" y="68" font-size="11" fill="#374151" text-anchor="middle" font-family="system-ui">AIR</text>
+      <line x1="120" y1="5" x2="120" y2="215" stroke="#166534" stroke-width="3" marker-end="url(#rg4)"/>
+      <text x="128" y="48" font-size="11" fill="#166534" font-family="system-ui">i = 0°</text>
+      <text x="128" y="115" font-size="11" fill="#166534" font-family="system-ui">r = 0°</text>
+      <text x="8" y="88" font-size="9" fill="#6b7280" font-family="system-ui">Boundary</text>
+    </svg>
+    <p class="diagram-note">Ray hits boundary at 90°<br>Changes speed but <strong>no bending</strong><br>i = 0°, r = 0°</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- TOPIC 3: TOTAL INTERNAL REFLECTION -->
+<div class="topic-banner tb3">3 · Total Internal Reflection (TIR)</div>
+
+<div class="card c-purple">
+  <span class="bdg b-purple">Total Internal Reflection</span>
+  <div class="g2" style="margin-top:8px">
+    <div>
+      <div class="row"><span class="tm">Critical angle (C)</span><span class="df">The angle of incidence (in the denser medium) at which the angle of refraction = 90°. The refracted ray travels along the boundary. For glass: C ≈ 42°. For water: C ≈ 49°.</span></div>
+      <div class="row"><span class="tm">TIR conditions</span><span class="df">1) Light must be travelling from a <strong>denser to a less dense</strong> medium (e.g. glass to air). 2) The angle of incidence must be <strong>greater than</strong> the critical angle (i &gt; C).</span></div>
+      <div class="row"><span class="tm">What happens</span><span class="df">ALL the light is reflected back into the denser medium — no refracted ray exits. The law of reflection applies to this reflected ray.</span></div>
+    </div>
+    <div>
+      <div class="row"><span class="tm">Optical fibres</span><span class="df">Thin glass fibres use TIR to carry infrared/light pulses. The ray hits the glass-cladding boundary at greater than the critical angle → TIR keeps the light inside the fibre. Used for internet, phone calls, endoscopes.</span></div>
+      <div class="row"><span class="tm">Diamonds</span><span class="df">Very small critical angle (~24°) → most rays undergo TIR many times → lots of internal reflections → sparkle.</span></div>
+      <div class="row"><span class="tm">Periscopes / binoculars</span><span class="df">Use 45° glass prisms instead of mirrors. TIR gives almost 100% reflection (better than mirrors which absorb some light).</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="diagram-grid">
+  <div class="diagram-box">
+    <div class="diagram-title">Three cases: below C, at C, above C (TIR)</div>
+    <svg viewBox="0 0 300 200" width="100%" style="max-width:300px;display:block;margin:0 auto">
+      <defs>
+        <marker id="t1" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#1e40af"/></marker>
+        <marker id="t2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#dc2626"/></marker>
+        <marker id="t3" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#166534"/></marker>
+        <marker id="t4" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#f97316"/></marker>
+      </defs>
+      <!-- glass block (bottom half) -->
+      <rect x="0" y="100" width="300" height="100" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="1.5"/>
+      <line x1="0" y1="100" x2="300" y2="100" stroke="#0ea5e9" stroke-width="2"/>
+      <text x="150" y="170" font-size="10" fill="#075985" text-anchor="middle" font-family="system-ui">GLASS</text>
+      <!-- CASE 1: below C -->
+      <text x="38" y="18" font-size="9" fill="#374151" text-anchor="middle" font-family="system-ui">i &lt; C</text>
+      <line x1="38" y1="100" x2="20" y2="140" stroke="#1e40af" stroke-width="1.8"/>
+      <line x1="20" y1="140" x2="38" y2="100" stroke="#1e40af" stroke-width="1.8" marker-end="url(#t1)"/>
+      <line x1="38" y1="100" x2="15" y2="22" stroke="#dc2626" stroke-width="1.5" marker-end="url(#t2)"/>
+      <line x1="38" y1="100" x2="62" y2="140" stroke="#dc2626" stroke-width="1.2" stroke-dasharray="3,2"/>
+      <text x="10" y="18" font-size="8" fill="#dc2626" font-family="system-ui">refracted</text>
+      <!-- CASE 2: at C -->
+      <text x="148" y="18" font-size="9" fill="#374151" text-anchor="middle" font-family="system-ui">i = C</text>
+      <line x1="148" y1="100" x2="125" y2="145" stroke="#1e40af" stroke-width="1.8"/>
+      <line x1="125" y1="145" x2="148" y2="100" stroke="#1e40af" stroke-width="1.8" marker-end="url(#t1)"/>
+      <line x1="10" y1="100" x2="290" y2="100" stroke="#166534" stroke-width="1.5" marker-end="url(#t3)"/>
+      <text x="230" y="95" font-size="8" fill="#166534" font-family="system-ui">90° refraction</text>
+      <line x1="148" y1="100" x2="172" y2="145" stroke="#dc2626" stroke-width="1.2" stroke-dasharray="3,2"/>
+      <!-- CASE 3: TIR -->
+      <text x="255" y="18" font-size="9" fill="#374151" text-anchor="middle" font-family="system-ui">i &gt; C (TIR)</text>
+      <line x1="255" y1="100" x2="228" y2="148" stroke="#1e40af" stroke-width="1.8"/>
+      <line x1="228" y1="148" x2="255" y2="100" stroke="#1e40af" stroke-width="1.8" marker-end="url(#t1)"/>
+      <line x1="255" y1="100" x2="282" y2="148" stroke="#f97316" stroke-width="2" marker-end="url(#t4)"/>
+      <text x="232" y="18" font-size="8" fill="#f97316" font-family="system-ui">TIR!</text>
+    </svg>
+    <p class="diagram-note">Left: partial refraction. Middle: refracted ray at 90° (critical angle). Right: TIR — all light reflected inside glass.</p>
+  </div>
+
+  <div class="diagram-box">
+    <div class="diagram-title">Optical fibre — TIR in action</div>
+    <svg viewBox="0 0 300 160" width="100%" style="max-width:300px;display:block;margin:0 auto">
+      <defs>
+        <marker id="of1" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#f59e0b"/></marker>
+      </defs>
+      <!-- fibre walls -->
+      <rect x="5" y="30" width="290" height="100" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="2" rx="8"/>
+      <rect x="5" y="30" width="290" height="20" fill="#bfdbfe" stroke="#0ea5e9" stroke-width="1" rx="4"/>
+      <rect x="5" y="110" width="290" height="20" fill="#bfdbfe" stroke="#0ea5e9" stroke-width="1" rx="4"/>
+      <text x="155" y="78" font-size="10" fill="#075985" text-anchor="middle" font-family="system-ui" font-weight="700">Glass core</text>
+      <text x="155" y="26" font-size="9" fill="#1e40af" text-anchor="middle" font-family="system-ui">Cladding (less dense)</text>
+      <!-- zigzag ray -->
+      <polyline points="15,80 65,35 115,80 165,35 215,80 265,35 295,55" stroke="#f59e0b" stroke-width="2.5" fill="none" marker-end="url(#of1)"/>
+      <text x="155" y="150" font-size="10" fill="#374151" text-anchor="middle" font-family="system-ui">Light undergoes TIR at each boundary</text>
+    </svg>
+    <p class="diagram-note">Each time light hits the glass-cladding boundary at &gt; critical angle → TIR → light stays inside the fibre</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- TOPIC 4: REAL-LIFE APPLICATIONS -->
+<div class="topic-banner tb4">4 · Real-Life Applications &amp; Examples</div>
+
+<div class="card c-amber">
+  <div class="g2">
+    <div>
+      <h3 style="margin-bottom:8px">Refraction in everyday life</h3>
+      <div class="row"><span class="tm">Straw in water</span><span class="df">Straw appears bent at the water surface. Light from the straw bends away from normal as it exits the water — your brain traces it back in a straight line to the wrong position.</span></div>
+      <div class="row"><span class="tm">Apparent depth</span><span class="df">A pool looks shallower than it is. Light bends away from normal leaving water → our brain places the object higher than it really is.</span></div>
+      <div class="row"><span class="tm">Rainbow</span><span class="df">White light dispersed (split into colours) by refraction and TIR inside raindrops. Red refracts least; violet refracts most.</span></div>
+      <div class="row"><span class="tm">Lenses</span><span class="df">Convex lens: converges parallel rays to a focal point (used in cameras, eyes, magnifying glasses). Concave lens: diverges rays.</span></div>
+    </div>
+    <div>
+      <h3 style="margin-bottom:8px">Reflection in everyday life</h3>
+      <div class="row"><span class="tm">Plane mirrors</span><span class="df">Regular reflection from a smooth flat surface. Virtual, upright image same size and distance behind mirror.</span></div>
+      <div class="row"><span class="tm">Periscopes</span><span class="df">Use two mirrors (or prisms using TIR) to allow viewing around corners. Each mirror deflects light by 90°.</span></div>
+      <div class="row"><span class="tm">Cat's eyes (road)</span><span class="df">Use retro-reflectors — light returns to its source regardless of angle. Two small prisms reflect light back to car headlights.</span></div>
+      <div class="row"><span class="tm">Telescopes</span><span class="df">Reflecting telescopes use concave mirrors to collect and focus light from distant objects.</span></div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- TOPIC 5: SNELL'S LAW -->
+<div class="topic-banner tb5">5 · Snell's Law &amp; Refractive Index</div>
+
+<div class="card c-rose">
+  <span class="bdg b-rose">Snell's Law — quantifying refraction</span>
+  <div class="g2" style="margin-top:8px">
+    <div>
+      <div class="fbox" style="font-size:18px">n = sin i ÷ sin r</div>
+      <div class="fbox-sm" style="margin-top:6px">n₁ sin θ₁ = n₂ sin θ₂</div>
+      <div class="row" style="margin-top:8px"><span class="tm">n</span><span class="df">Refractive index (no units). Ratio of sin(angle of incidence) to sin(angle of refraction).</span></div>
+      <div class="row"><span class="tm">sin i</span><span class="df">Sine of the angle of incidence (in air/vacuum)</span></div>
+      <div class="row"><span class="tm">sin r</span><span class="df">Sine of the angle of refraction (in the medium)</span></div>
+    </div>
+    <div>
+      <div class="row"><span class="tm">Refractive index</span><span class="df">A measure of how much a medium slows light. n = speed in vacuum ÷ speed in medium = c ÷ v.</span></div>
+      <div class="row"><span class="tm">Glass</span><span class="df">n ≈ 1.5. Light slows to 2 × 10⁸ m/s.</span></div>
+      <div class="row"><span class="tm">Water</span><span class="df">n ≈ 1.33. Light slows to 2.25 × 10⁸ m/s.</span></div>
+      <div class="row"><span class="tm">Air / vacuum</span><span class="df">n = 1.0. Light travels at 3 × 10⁸ m/s.</span></div>
+      <div class="row"><span class="tm">Critical angle</span><span class="df">sin C = 1/n. For glass: sin C = 1/1.5 = 0.667, so C ≈ 42°.</span></div>
+    </div>
+  </div>
+  <div class="card" style="background:#f8fafc;border:1px dashed #cbd5e1;margin-top:12px">
+    <p style="font-size:13px;color:#374151;line-height:1.8"><strong>Worked example:</strong> A ray enters glass at an angle of incidence of 40°. The angle of refraction is 25°. Calculate the refractive index.<br>
+    <strong>n = sin i ÷ sin r = sin 40° ÷ sin 25° = 0.643 ÷ 0.423 = 1.52</strong> (glass ✓)</p>
+  </div>
+</div>
+
+<div class="st">Key equations summary</div>
+<div class="card">
+  <div class="g3">
+    <div style="text-align:center"><div class="fbox" style="font-size:14px">i = r</div><p style="font-size:12px;color:#6b7280;margin-top:4px">Law of reflection<br>Angle of incidence = angle of reflection</p></div>
+    <div style="text-align:center"><div class="fbox" style="font-size:14px">n = sin i ÷ sin r</div><p style="font-size:12px;color:#6b7280;margin-top:4px">Snell's Law<br>n = refractive index (no units)</p></div>
+    <div style="text-align:center"><div class="fbox" style="font-size:14px">n = c ÷ v</div><p style="font-size:12px;color:#6b7280;margin-top:4px">Refractive index<br>c = 3×10⁸ m/s; v = speed in medium</p></div>
+    <div style="text-align:center"><div class="fbox" style="font-size:14px">sin C = 1/n</div><p style="font-size:12px;color:#6b7280;margin-top:4px">Critical angle<br>C = critical angle for TIR</p></div>
+    <div style="text-align:center"><div class="fbox" style="font-size:14px">v = f × λ</div><p style="font-size:12px;color:#6b7280;margin-top:4px">Wave equation<br>v = 3×10⁸ m/s for light in vacuum</p></div>
+    <div style="text-align:center"><div class="fbox" style="font-size:14px">Object dist = Image dist</div><p style="font-size:12px;color:#6b7280;margin-top:4px">Plane mirror image<br>Same distance behind mirror</p></div>
+  </div>
+</div>
+
+<div style="text-align:center;margin-top:24px"><button class="ab" onclick="sp('sa')">Go to Self-Assessment →</button></div>
+</div><!-- end KO -->
+
+<!-- ══════════════════════════ SELF ASSESSMENT ══════════════════ -->
+<div class="pg" id="pg-sa">
+<h1 style="margin-bottom:4px">Self-Assessment</h1>
+<p style="font-size:13px;color:#6b7280;margin-bottom:20px">Rate every skill: <strong style="color:#16a34a">G</strong> = Confident · <strong style="color:#d97706">A</strong> = Unsure · <strong style="color:#dc2626">R</strong> = Not yet learned</p>
+<div id="sa-wrap"></div>
+<div style="text-align:center;margin-top:20px"><button class="ab" onclick="sp('mcq')">Multiple Choice →</button></div>
+</div>
+
+<!-- ══════════════════════════ MCQ ═══════════════════════════════ -->
+<div class="pg" id="pg-mcq">
+<h1 style="margin-bottom:4px">Multiple Choice Questions</h1>
+<p style="font-size:13px;color:#6b7280;margin-bottom:20px">15 questions · Select your answer for instant feedback.</p>
+<div id="mcq-wrap"></div>
+<div style="text-align:center;margin-top:20px"><button class="ab" onclick="sp('eq')">Exam Questions →</button></div>
+</div>
+
+<!-- ══════════════════════════ EXAM QUESTIONS ════════════════════ -->
+<div class="pg" id="pg-eq">
+<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:6px">
+  <h1>Exam-Style Questions</h1>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;font-size:12px">
+    <span style="background:#dcfce7;color:#166534;padding:3px 10px;border-radius:10px;font-weight:600">● Foundation</span>
+    <span style="background:#fef3c7;color:#92400e;padding:3px 10px;border-radius:10px;font-weight:600">● Developing</span>
+    <span style="background:#fee2e2;color:#991b1b;padding:3px 10px;border-radius:10px;font-weight:600">● Higher</span>
+    <span style="background:#ede9fe;color:#6d28d9;padding:3px 10px;border-radius:10px;font-weight:600">● Extended</span>
+  </div>
+</div>
+<p style="font-size:13px;color:#6b7280;margin-bottom:20px">20 Pearson-style questions · Increasing difficulty · Click <strong>Reveal Answer</strong> if stuck.</p>
+<div id="eq-wrap"></div>
+<div style="text-align:center;margin-top:20px"><button class="ab" onclick="bs();sp('sm')">View My Summary →</button></div>
+</div>
+
+<!-- ══════════════════════════ SUMMARY ═══════════════════════════ -->
+<div class="pg" id="pg-sm">
+<h1 style="margin-bottom:4px">My Summary</h1>
+<p style="font-size:13px;color:#6b7280;margin-bottom:20px">Your personalised performance profile — Reflection &amp; Refraction</p>
+<div id="sm-wrap"></div>
+</div>
+
+</div>
+
+<script>
+/* ═══════ RAG DATA ═══════ */
+var RAG=[
+  {id:'t1',label:'Reflection — Law & Diagrams',color:'#1e40af',skills:[
+    {id:'r1a',tx:'I can state the law of reflection (i = r) and explain that both angles are measured from the normal, not the surface.'},
+    {id:'r1b',tx:'I can draw a fully labelled reflection diagram including: mirror, normal (dashed), incident ray, reflected ray, angles i and r correctly placed.'},
+    {id:'r1c',tx:'I can explain the difference between regular (specular) and diffuse reflection with examples of each.'},
+    {id:'r1d',tx:'I can describe the properties of an image in a plane mirror: virtual, same size, same distance behind, upright, laterally inverted.'}
+  ]},
+  {id:'t2',label:'Refraction — Rules & Diagrams',color:'#0f766e',skills:[
+    {id:'r2a',tx:'I can define refraction as the change in direction of a wave crossing a boundary due to a change in speed.'},
+    {id:'r2b',tx:'I can state what happens in each case: air→glass (toward normal), glass→air (away from normal), ray along normal (no bending).'},
+    {id:'r2c',tx:'I can draw accurate refraction diagrams for a ray entering and leaving a glass block, showing lateral displacement.'},
+    {id:'r2d',tx:'I can explain real-life refraction examples: apparent depth, straw in water, rainbows, lenses.'}
+  ]},
+  {id:'t3',label:'Total Internal Reflection',color:'#6d28d9',skills:[
+    {id:'r3a',tx:'I can state the two conditions required for total internal reflection (denser→less dense medium; angle of incidence > critical angle).'},
+    {id:'r3b',tx:'I can define the critical angle and describe what happens at angles below C, at C, and above C.'},
+    {id:'r3c',tx:'I can explain how optical fibres use TIR and describe their applications (communications, endoscopes).'},
+    {id:'r3d',tx:'I can apply sin C = 1/n to calculate the critical angle for a medium with known refractive index.'}
+  ]},
+  {id:'t4',label:"Snell's Law & Refractive Index",color:'#9f1239',skills:[
+    {id:'r4a',tx:'I can apply Snell\'s law (n = sin i ÷ sin r) to calculate the refractive index of a medium.'},
+    {id:'r4b',tx:'I can use n = c ÷ v to calculate the speed of light in a medium given the refractive index.'},
+    {id:'r4c',tx:'I can rearrange Snell\'s law to find an unknown angle of incidence or refraction.'},
+    {id:'r4d',tx:'I can interpret experimental data (angles of incidence and refraction) to determine the refractive index and draw conclusions.'}
+  ]}
+];
+
+/* ═══════ MCQ DATA ═══════ */
+var MCQ=[
+  {id:'m1',tp:'Law of Reflection',
+   q:'A ray of light strikes a flat mirror. The angle between the incident ray and the mirror surface is 35°. What is the angle of reflection (measured from the normal)?',
+   os:['35°','55°','70°','90°'],
+   c:1,ex:'The angle with the surface = 35°, so the angle with the normal (angle of incidence) = 90° − 35° = 55°. By the law of reflection, angle of reflection = angle of incidence = 55°. Remember: always measure from the NORMAL, not the surface.'},
+  {id:'m2',tp:'Law of Reflection',
+   q:'Which statement correctly describes the law of reflection?',
+   os:['The angle of incidence equals the angle of reflection, both measured from the mirror surface','The angle of incidence equals the angle of reflection, both measured from the normal at the point of incidence','The incident ray and reflected ray are always perpendicular to each other','The angle of refraction equals the angle of incidence for a smooth surface'],
+   c:1,ex:'The law of reflection states: angle of incidence (i) = angle of reflection (r), where BOTH angles are measured from the NORMAL at the point where the ray hits the surface. The incident ray, normal and reflected ray are all in the same plane.'},
+  {id:'m3',tp:'Regular vs Diffuse',
+   q:'A rough brick wall scatters light in many directions when illuminated. Which term describes this behaviour?',
+   os:['Regular reflection','Specular reflection','Diffuse reflection','Total internal reflection'],
+   c:2,ex:'Diffuse reflection occurs when light hits a rough or uneven surface. The surface has many tiny facets at different angles, so reflected rays go in many directions. The law of reflection still applies at each tiny point, but the overall effect is scattered light with no clear image. Regular/specular reflection occurs from smooth surfaces like mirrors.'},
+  {id:'m4',tp:'Mirror image properties',
+   q:'An object is 12 cm in front of a plane mirror. Which statement about the image is correct?',
+   os:['The image is 12 cm in front of the mirror and is real','The image is 12 cm behind the mirror and is virtual','The image is 24 cm behind the mirror and is real','The image is 6 cm behind the mirror and is inverted'],
+   c:1,ex:'A plane mirror image is always: virtual (no actual light passes through), the same distance behind the mirror as the object is in front (12 cm = 12 cm), upright, the same size, and laterally inverted (left-right swapped). It is never real.'},
+  {id:'m5',tp:'Refraction — direction',
+   q:'A ray of light travels from air into a glass block at an angle. In which direction does it bend?',
+   os:['Away from the normal, because it speeds up','Toward the normal, because it slows down','It does not bend because light always travels in straight lines','Away from the normal, because glass is denser'],
+   c:1,ex:'When light enters a denser medium (glass) it SLOWS DOWN. If it enters at an angle, slowing down causes it to bend TOWARD the normal. The angle of refraction is smaller than the angle of incidence. Remember: denser medium → slows → bends toward normal.'},
+  {id:'m6',tp:'Refraction — glass to air',
+   q:'A ray of light travels from glass (denser) into air (less dense) at an angle of 30° to the normal inside the glass. The angle of refraction in air will be:',
+   os:['Less than 30° — it bends toward the normal','Exactly 30° — it continues unchanged','Greater than 30° — it bends away from the normal','90° — it travels along the boundary'],
+   c:2,ex:'When light exits a denser medium (glass) to a less dense medium (air), it SPEEDS UP. Speeding up at an angle causes the ray to bend AWAY from the normal. The angle of refraction in air is greater than the angle of incidence in glass. This is the reverse of what happens when light enters glass from air.'},
+  {id:'m7',tp:'Refraction — lateral displacement',
+   q:'A ray of light passes straight through a parallel-sided glass block (entering one face and exiting the opposite parallel face). How does the emergent ray compare to the incident ray?',
+   os:['It is perpendicular to the incident ray','It is parallel to the incident ray but displaced sideways','It continues in exactly the same direction with no change','It is bent toward the incident ray'],
+   c:1,ex:'The two refractions (at entry and exit) are equal and opposite in direction — so the emergent ray ends up parallel to the incident ray. However, because of the displacement that occurred while inside the glass, the emergent ray is shifted sideways. This sideways shift is called lateral displacement.'},
+  {id:'m8',tp:'TIR — conditions',
+   q:'Which TWO conditions must be met for total internal reflection to occur?',
+   os:['Light must travel from a less dense to a denser medium AND the angle must exceed the critical angle','Light must travel from a denser to a less dense medium AND the angle of incidence must exceed the critical angle','The surface must be rough AND the angle must exceed 45°','Light must travel along the normal AND the medium must be glass'],
+   c:1,ex:'For TIR: (1) Light must be travelling from a denser medium to a less dense medium (e.g. glass → air, not air → glass). (2) The angle of incidence inside the denser medium must be GREATER THAN the critical angle. Both conditions must be satisfied simultaneously.'},
+  {id:'m9',tp:'Critical angle',
+   q:'At the critical angle, what happens to the refracted ray?',
+   os:['The refracted ray goes back into the denser medium','The refracted ray travels along the boundary (angle of refraction = 90°)','The refracted ray is completely absorbed','The refracted ray bends 45° from the normal'],
+   c:1,ex:'At exactly the critical angle, the refracted ray travels along the boundary between the two media — the angle of refraction equals exactly 90°. If the angle of incidence is increased beyond the critical angle, the refracted ray disappears entirely and total internal reflection occurs.'},
+  {id:'m10',tp:'TIR — optical fibres',
+   q:'Optical fibres can carry data signals over long distances. Which property of light is used?',
+   os:['Reflection from the outer surface of the fibre','Total internal reflection at the glass-cladding boundary inside the fibre','Refraction at each end of the fibre to redirect the signal','Diffraction of light inside the fibre'],
+   c:1,ex:'Optical fibres work by total internal reflection. Light (or infrared pulses) hits the glass core-cladding boundary at an angle greater than the critical angle → TIR → light stays inside the fibre. This repeats along the entire length, allowing signals to travel thousands of kilometres with very little loss.'},
+  {id:'m11',tp:"Snell's Law",
+   q:"A ray enters glass with an angle of incidence of 45° and an angle of refraction of 28°. What is the refractive index of the glass?",
+   os:['1.52','0.66','1.07','2.08'],
+   c:0,ex:'n = sin i ÷ sin r = sin 45° ÷ sin 28° = 0.707 ÷ 0.469 = 1.51 ≈ 1.52. This is typical of glass. Remember: the angle of incidence is in the less dense medium (air) and the angle of refraction is in the denser medium (glass).'},
+  {id:'m12',tp:'Refractive index — speed',
+   q:'The refractive index of diamond is 2.42. What is the speed of light in diamond? (c = 3 × 10⁸ m/s)',
+   os:['7.26 × 10⁸ m/s','1.24 × 10⁸ m/s','2.42 × 10⁸ m/s','3 × 10⁸ m/s'],
+   c:1,ex:'n = c ÷ v → v = c ÷ n = (3 × 10⁸) ÷ 2.42 = 1.24 × 10⁸ m/s. Light is slowed to about 41% of its vacuum speed inside diamond. This large slowing is why diamond has a small critical angle and sparkles so much.'},
+  {id:'m13',tp:'Critical angle calculation',
+   q:'The refractive index of a glass is 1.5. Calculate the critical angle for this glass.',
+   os:['41.8°','33.2°','48.6°','30.0°'],
+   c:0,ex:'sin C = 1/n = 1/1.5 = 0.667. C = sin⁻¹(0.667) = 41.8°. This means any ray hitting the glass-air boundary at more than 41.8° from the normal will undergo TIR.'},
+  {id:'m14',tp:'Apparent depth',
+   q:'A coin is at the bottom of a swimming pool, which is 2 m deep. Why does the coin appear to be at a depth less than 2 m when viewed from above?',
+   os:['The water absorbs some of the light from the coin','Light from the coin bends away from the normal as it crosses from water to air, making the coin appear higher than it actually is','The coin reflects light upward toward the surface','Water magnifies objects making them appear larger and therefore closer'],
+   c:1,ex:'Light travels from the coin through water (denser) into air (less dense). At the water-air boundary it bends AWAY from the normal. When we trace these rays back in straight lines (as our brain does), they appear to come from a point that is shallower than the real coin position. This apparent depth effect makes pools look shallower than they actually are — a safety hazard.'},
+  {id:'m15',tp:'Practical — measuring n',
+   q:'A student traces rays through a glass block to measure the refractive index. They measure the angle of incidence as 50° and the angle of refraction as 31°. Which calculation gives the refractive index?',
+   os:['31 ÷ 50 = 0.62','sin 50° ÷ sin 31° = 1.49','50° − 31° = 19°','sin 31° ÷ sin 50° = 0.67'],
+   c:1,ex:'Snell\'s Law: n = sin i ÷ sin r = sin 50° ÷ sin 31°. sin 50° = 0.766; sin 31° = 0.515. n = 0.766 ÷ 0.515 = 1.49 ≈ 1.5. Note: you must take the sine of the angles, NOT just divide the angles directly (0.62 is wrong). The refractive index is always ≥ 1.'}
+];
+
+/* ═══════ EXAM QUESTIONS DATA ═══════ */
+var EQ=[
+  {id:'e1',diff:1,dlabel:'Foundation',marks:2,topic:'Law of Reflection',
+   stem:'A ray of light hits a plane mirror.',
+   parts:[{label:'(a)',text:'State the law of reflection.',marks:2}],
+   answer:'The angle of incidence equals the angle of reflection ✓. Both angles are measured from the normal at the point of incidence ✓. (2 marks — award 1 for i=r, 1 for "measured from the normal")'},
+
+  {id:'e2',diff:1,dlabel:'Foundation',marks:3,topic:'Reflection diagram',
+   stem:'A ray of light is incident on a plane mirror at an angle of 40° to the mirror surface.',
+   parts:[
+     {label:'(a)',text:'What is the angle of incidence (measured from the normal)?',marks:1},
+     {label:'(b)',text:'What is the angle of reflection?',marks:1},
+     {label:'(c)',text:'Draw and label a diagram showing the incident ray, normal, reflected ray and the angles i and r.',marks:1}
+   ],
+   answer:'(a) Angle of incidence = 90° − 40° = 50° ✓ (angle from the normal, not the surface)\n(b) Angle of reflection = 50° ✓ (equals the angle of incidence)\n(c) Diagram should show: horizontal mirror, dashed normal perpendicular to mirror, incident ray at 50° from normal on one side, reflected ray at 50° from normal on the other side, angles i and r correctly labelled from the normal ✓'},
+
+  {id:'e3',diff:1,dlabel:'Foundation',marks:4,topic:'Mirror image properties',
+   stem:'A student stands 2 m in front of a large plane mirror.',
+   parts:[
+     {label:'(a)',text:'State the distance of the student\'s image from the mirror.',marks:1},
+     {label:'(b)',text:'State whether the image is real or virtual. Explain what this means.',marks:2},
+     {label:'(c)',text:'The student raises her right hand. Which hand does her image appear to raise?',marks:1}
+   ],
+   answer:'(a) 2 m behind the mirror ✓ (same distance behind as object is in front)\n(b) Virtual ✓. A virtual image is one from which light only appears to come — no light rays actually pass through the image position ✓. (Accept: the image cannot be projected onto a screen)\n(c) Her left hand ✓ (a mirror image is laterally inverted — left and right are swapped)'},
+
+  {id:'e4',diff:1,dlabel:'Foundation',marks:3,topic:'Refraction — direction',
+   stem:'A ray of light travels from air into a glass block at an angle to the boundary.',
+   parts:[
+     {label:'(a)',text:'In which direction does the ray bend when it enters the glass? Explain why.',marks:2},
+     {label:'(b)',text:'What happens to the ray when it hits the boundary at 90° (along the normal)?',marks:1}
+   ],
+   answer:'(a) The ray bends toward the normal ✓. This is because light slows down when it enters a denser medium (glass) ✓. The change in speed at an angle causes the change in direction.\n(b) The ray passes straight through without bending ✓ (no change in direction — it changes speed but not direction when hitting at 90° to the boundary)'},
+
+  {id:'e5',diff:1,dlabel:'Foundation',marks:4,topic:'Refraction — glass block diagram',
+   stem:'A ray of light enters a rectangular glass block and exits through the opposite parallel face.',
+   parts:[
+     {label:'(a)',text:'Draw a diagram showing the ray entering and exiting the glass block. Include normals at each boundary.',marks:2},
+     {label:'(b)',text:'How does the direction of the emergent ray compare to the incident ray?',marks:1},
+     {label:'(c)',text:'What is the name given to the sideways shift of the ray?',marks:1}
+   ],
+   answer:'(a) Diagram should show: rectangular glass block; incident ray in air; normal (dashed, perpendicular) at entry face; ray bending toward normal on entry; ray travelling in a straight line through glass; normal at exit face; ray bending away from normal on exit ✓✓\n(b) The emergent ray is parallel to the incident ray ✓ (same direction, but shifted sideways)\n(c) Lateral displacement ✓'},
+
+  {id:'e6',diff:2,dlabel:'Developing',marks:4,topic:'Real vs Diffuse Reflection',
+   stem:'A student looks at her reflection in a flat mirror and then in a sheet of white paper.',
+   parts:[
+     {label:'(a)',text:'Explain why she sees a clear image in the mirror but not in the paper.',marks:3},
+     {label:'(b)',text:'Does the law of reflection apply to the paper? Explain your answer.',marks:1}
+   ],
+   answer:'(a) The mirror has a very smooth, flat surface ✓. Parallel rays from an object strike the mirror and are all reflected at the same angle (regular/specular reflection) ✓. This produces a clear, undistorted image. The paper has a rough, uneven surface — rays are reflected in many different random directions (diffuse reflection) ✓ — no clear image forms.\n(b) Yes, the law of reflection (i = r) still applies at every individual point on the paper surface ✓. However, because the surface is uneven, the normal direction varies from point to point, so the reflected rays go in many different directions overall.'},
+
+  {id:'e7',diff:2,dlabel:'Developing',marks:5,topic:'TIR — conditions',
+   stem:'A student shines a ray of light from inside a glass block toward the glass-air boundary.',
+   parts:[
+     {label:'(a)',text:'State the two conditions needed for total internal reflection to occur.',marks:2},
+     {label:'(b)',text:'Describe what happens at each of these situations: (i) angle of incidence < critical angle, (ii) angle of incidence = critical angle, (iii) angle of incidence > critical angle.',marks:3}
+   ],
+   answer:'(a) 1) Light must be travelling from a denser medium to a less dense medium (glass to air) ✓. 2) The angle of incidence must be greater than the critical angle ✓.\n(b) (i) i < C: the ray is partially refracted (exits the glass bending away from normal) and partially internally reflected ✓\n(ii) i = C: the refracted ray travels along the boundary at 90° to the normal — the angle of refraction equals 90° ✓\n(iii) i > C: total internal reflection — all the light is reflected back into the glass; no refracted ray exits ✓'},
+
+  {id:'e8',diff:2,dlabel:'Developing',marks:4,topic:"Snell's Law calculation",
+   stem:'A ray of light passes from air into water. The angle of incidence in air is 60° and the angle of refraction in water is 40°.',
+   parts:[
+     {label:'(a)',text:'Calculate the refractive index of water. Show your working.',marks:3},
+     {label:'(b)',text:'Is the ray travelling faster or slower in water than in air? Justify your answer.',marks:1}
+   ],
+   answer:'(a) n = sin i ÷ sin r ✓\nn = sin 60° ÷ sin 40° ✓\nn = 0.866 ÷ 0.643\nn = 1.35 ✓ (accept 1.33–1.35)\n(b) Slower ✓ — because the ray bends toward the normal when entering water, which means water is optically denser and light travels more slowly in it. (OR: refractive index > 1 means speed < c in air)'},
+
+  {id:'e9',diff:2,dlabel:'Developing',marks:5,topic:'Optical fibres',
+   stem:'Optical fibres are used to transmit data over long distances.',
+   parts:[
+     {label:'(a)',text:'Explain how total internal reflection allows light to travel along an optical fibre.',marks:3},
+     {label:'(b)',text:'State TWO uses of optical fibres.',marks:2}
+   ],
+   answer:'(a) The optical fibre consists of a glass core surrounded by a cladding material of lower refractive index (less optically dense) ✓. Light enters the fibre and travels at an angle such that it hits the core-cladding boundary at an angle greater than the critical angle ✓. Total internal reflection occurs — all the light is reflected back into the core and continues along the fibre without escaping ✓. This repeats along the length of the fibre.\n(b) Any two of: internet/telecommunications / telephone calls / endoscopes (viewing inside the body) / medical imaging / decorative lighting ✓✓'},
+
+  {id:'e10',diff:2,dlabel:'Developing',marks:4,topic:'Apparent depth — refraction',
+   stem:'A swimming pool is 3.0 m deep. A lifeguard standing above looks down at a coin on the bottom.',
+   parts:[
+     {label:'(a)',text:'Explain why the coin appears to be at a depth less than 3.0 m.',marks:3},
+     {label:'(b)',text:'Suggest one practical consequence of apparent depth that could affect the safety of swimmers.',marks:1}
+   ],
+   answer:'(a) Light travels from the coin through water (denser medium) to air (less dense medium) ✓. At the water-air boundary, the light bends away from the normal (refracts) ✓. When the lifeguard\'s eye traces the refracted rays back in straight lines, they appear to come from a point that is closer to the surface than the actual coin ✓ — the pool appears shallower than it is.\n(b) A swimmer might misjudge the depth when diving / a rescuer might misjudge where a drowning person is / difficulty accurately judging depth when swimming ✓'},
+
+  {id:'e11',diff:3,dlabel:'Higher',marks:5,topic:'Critical angle calculation',
+   stem:'A glass has a refractive index of 1.65.',
+   parts:[
+     {label:'(a)',text:'Calculate the critical angle for this glass. Show your working.',marks:3},
+     {label:'(b)',text:'A ray hits the glass-air boundary at 38°. Determine whether TIR occurs. Justify your answer.',marks:2}
+   ],
+   answer:'(a) sin C = 1/n = 1/1.65 ✓\nsin C = 0.606\nC = sin⁻¹(0.606) = 37.3° ✓✓ (award 3 marks for correct method and answer; 2 if method correct but arithmetic error)\n(b) The critical angle is 37.3°. The ray hits at 38° ✓. Since 38° > 37.3°, the angle of incidence exceeds the critical angle, so TIR DOES occur ✓.'},
+
+  {id:'e12',diff:3,dlabel:'Higher',marks:6,topic:"Snell's Law — multi-step",
+   stem:'A ray of light enters a glass prism (n = 1.50) from air. The angle of incidence on the first face is 45°.',
+   parts:[
+     {label:'(a)',text:'Calculate the angle of refraction inside the glass.',marks:3},
+     {label:'(b)',text:'The ray then hits the second face of the prism at an angle of 50° to the normal inside the glass. Will TIR occur at this face? Show your reasoning.',marks:3}
+   ],
+   answer:'(a) n = sin i ÷ sin r → sin r = sin i ÷ n ✓\nsin r = sin 45° ÷ 1.50 = 0.707 ÷ 1.50 = 0.471 ✓\nr = sin⁻¹(0.471) = 28.1° ✓\n(b) Find critical angle: sin C = 1/n = 1/1.50 = 0.667 → C = 41.8° ✓\nThe ray hits at 50°. Since 50° > 41.8° (the critical angle) ✓, TIR will occur at the second face ✓.'},
+
+  {id:'e13',diff:3,dlabel:'Higher',marks:5,topic:'Speed in medium calculation',
+   stem:'The refractive index of a certain glass is 1.52. (c = 3.0 × 10⁸ m/s)',
+   parts:[
+     {label:'(a)',text:'Calculate the speed of light in this glass.',marks:2},
+     {label:'(b)',text:'A ray of light has a frequency of 5.0 × 10¹⁴ Hz in air. Calculate its wavelength in air.',marks:2},
+     {label:'(c)',text:'Does the frequency of the light change when it enters the glass? Explain.',marks:1}
+   ],
+   answer:'(a) n = c ÷ v → v = c ÷ n ✓\nv = (3.0 × 10⁸) ÷ 1.52 = 1.97 × 10⁸ m/s ✓\n(b) λ = v ÷ f = (3.0 × 10⁸) ÷ (5.0 × 10¹⁴) ✓\nλ = 6.0 × 10⁻⁷ m (= 600 nm) ✓\n(c) The frequency does NOT change ✓ — frequency is determined by the source and remains constant. Only the speed (and therefore wavelength) changes when light enters a different medium.'},
+
+  {id:'e14',diff:3,dlabel:'Higher',marks:5,topic:'Practical — refractive index experiment',
+   stem:'A student performs an experiment to find the refractive index of a glass block. They trace rays through the block at five different angles of incidence and measure the angles of refraction.',
+   parts:[
+     {label:'(a)',text:'Describe how the student should draw the experiment to get accurate results for the angles.',marks:3},
+     {label:'(b)',text:'The student plots a graph of sin i (y-axis) against sin r (x-axis). What does the gradient of this graph represent?',marks:2}
+   ],
+   answer:'(a) Place the glass block on plain paper and draw around it ✓. Shine a ray at the block and mark two dots on the incident ray (to define its direction) and two dots on the emergent ray ✓. Remove the block and join the dots to find the complete incident and emergent ray paths. Draw the normal (perpendicular) at the entry point. Measure i and r from the normal using a protractor ✓. Repeat for different angles of incidence.\n(b) n = sin i ÷ sin r can be rearranged as sin i = n × sin r. This is in the form y = mx (straight line through origin). The gradient of sin i vs sin r = n = the refractive index ✓✓.'},
+
+  {id:'e15',diff:3,dlabel:'Higher',marks:6,topic:'Comparing reflection and refraction',
+   stem:'A ray of light hits the boundary between two different materials.',
+   parts:[
+     {label:'(a)',text:'Explain the conditions under which the ray will be (i) refracted, (ii) totally internally reflected.',marks:4},
+     {label:'(b)',text:'In both cases, what is the common feature of how the angles are measured?',marks:1},
+     {label:'(c)',text:'A ray hits the boundary between glass (n=1.5) and water (n=1.33) from the glass side. Will TIR occur at a smaller or larger critical angle than at a glass-air boundary? Explain.',marks:1}
+   ],
+   answer:'(a)(i) Refraction occurs when: the ray hits the boundary at any angle except 0° ✓ AND is not undergoing TIR. The ray changes speed as it crosses the boundary, causing it to change direction ✓. The ray bends toward the normal going into a denser medium and away from the normal going into a less dense medium.\n(a)(ii) TIR occurs when: the ray travels from a denser to a less dense medium ✓ AND the angle of incidence exceeds the critical angle ✓.\n(b) In both cases, angles are measured from the normal at the point where the ray meets the boundary ✓.\n(c) Larger critical angle ✓ — because the difference in optical density between glass and water is smaller than between glass and air. sin C = n₂/n₁ = 1.33/1.5 = 0.887 → C = 62.5°, compared to 41.8° for glass-air. Less difference in density = less bending = larger critical angle needed.'},
+
+  {id:'e16',diff:4,dlabel:'Extended',marks:6,topic:'Extended — optical fibres vs copper wire',
+   stem:'Telecommunications companies are replacing copper telephone cables with optical fibres.',
+   parts:[
+     {label:'',text:'Compare the use of optical fibres with copper wire cables for transmitting data. In your answer, explain: the physical principle that allows optical fibres to work, the advantages of optical fibres over copper wire, and any limitations of optical fibres. (6 marks)',marks:6}
+   ],
+   answer:'Level 3 (5–6 marks): Detailed and well-organised comparison.\nPrinciple: Optical fibres work by total internal reflection ✓. Light (infrared pulses) travels along the glass core and hits the glass-cladding boundary at an angle greater than the critical angle → TIR occurs → light stays confined inside the fibre ✓.\nAdvantages over copper: Much greater bandwidth — can carry far more data simultaneously ✓. Signals can travel much longer distances before needing to be boosted (lower signal loss) ✓. No electrical interference (immune to electromagnetic interference) ✓. Lighter and thinner than copper cables ✓. More secure — harder to tap without detection ✓.\nLimitations: More expensive to install initially ✓. Glass fibres are more fragile/brittle than copper ✓. Cannot carry electrical power alongside the signal (unlike copper) ✓. Skilled technicians needed to splice and connect fibres ✓.'},
+
+  {id:'e17',diff:4,dlabel:'Extended',marks:5,topic:'Dispersion through a prism',
+   stem:'White light enters a glass prism and exits as a spectrum of colours.',
+   parts:[
+     {label:'(a)',text:'Explain why white light separates into colours when it passes through a prism.',marks:3},
+     {label:'(b)',text:'Red light has a wavelength of 700 nm and violet light has a wavelength of 400 nm in air. Which has a higher frequency? Show your reasoning.',marks:2}
+   ],
+   answer:'(a) White light is a mixture of all colours of the visible spectrum ✓. Each colour has a slightly different wavelength (and frequency) ✓. When light slows down in glass, different wavelengths are slowed by slightly different amounts — violet light slows down more than red ✓. Because they slow by different amounts, they refract by different amounts — violet bends more than red ✓ (award 3 for all three points)\n(b) v = fλ, so f = v ÷ λ. Both travel at 3 × 10⁸ m/s in air. Violet: f = 3 × 10⁸ ÷ 4 × 10⁻⁷ = 7.5 × 10¹⁴ Hz ✓. Red: f = 3 × 10⁸ ÷ 7 × 10⁻⁷ = 4.3 × 10¹⁴ Hz. Violet has a HIGHER frequency ✓.'},
+
+  {id:'e18',diff:4,dlabel:'Extended',marks:6,topic:'Ray tracing — locating an image',
+   stem:'A student uses two rays from an object to locate the image in a plane mirror.',
+   parts:[
+     {label:'(a)',text:'Describe the method (using two rays and the law of reflection) that a student would use to locate the image of a point object in a plane mirror.',marks:4},
+     {label:'(b)',text:'The object is moved further from the mirror. Describe and explain what happens to: (i) the position of the image, (ii) the size of the image.',marks:2}
+   ],
+   answer:'(a) Draw the mirror and place the object in front ✓. Draw two rays from the object to different points on the mirror ✓. Apply the law of reflection at each point: measure angle of incidence from the normal, draw reflected ray at equal angle on the other side ✓. Extend the two reflected rays behind the mirror with dashed lines ✓. Where the dashed lines intersect behind the mirror is the image position. Mark it as a virtual image.\n(b)(i) The image moves further behind the mirror ✓ — it is always the same distance behind the mirror as the object is in front.\n(b)(ii) The size of the image stays the same ✓ — a plane mirror always produces an image the same size as the object (magnification = 1), regardless of distance.'},
+
+  {id:'e19',diff:4,dlabel:'Extended',marks:7,topic:'Synoptic — refraction and waves',
+   stem:'This question links refraction to the wave nature of light.',
+   parts:[
+     {label:'(a)',text:'Explain, using the wave model of light, why light bends when it enters a glass block at an angle.',marks:3},
+     {label:'(b)',text:'A light ray in air hits a glass block (n = 1.6) at 50° to the normal. Calculate the angle of refraction inside the glass.',marks:3},
+     {label:'(c)',text:'The same ray continues through the glass and hits the far side at 25° to the normal. Will TIR occur? Show your working.',marks:1}
+   ],
+   answer:'(a) Light travels as a wave. When the wavefront hits the glass boundary at an angle, one edge of the wavefront enters the glass first and slows down ✓ while the other edge is still in air at the faster speed ✓. This difference in speed across the wavefront causes the wave to change direction — the slower side is "held back" and the wave pivots toward the normal ✓.\n(b) n = sin i ÷ sin r → sin r = sin i ÷ n ✓\nsin r = sin 50° ÷ 1.6 = 0.766 ÷ 1.6 = 0.479 ✓\nr = sin⁻¹(0.479) = 28.6° ✓\n(c) Critical angle: sin C = 1/1.6 = 0.625 → C = 38.7°. The ray hits at 25° < 38.7°, so TIR does NOT occur ✓ (some light is refracted out).'},
+
+  {id:'e20',diff:4,dlabel:'Extended',marks:8,topic:'Extended — evaluate experiment',
+   stem:'A student measures the refractive index of several liquids using a glass semicircular block. They direct a ray through the flat face and measure the angle at which TIR first occurs when the ray travels from glass into the liquid.',
+   parts:[
+     {label:'(a)',text:'Explain why a semicircular block is used, rather than a rectangular block, for this experiment.',marks:2},
+     {label:'(b)',text:'The student finds that TIR first occurs at 52° for liquid A. The refractive index of the glass is 1.50. Calculate the refractive index of liquid A.',marks:3},
+     {label:'(c)',text:'The student repeats the experiment and gets these critical angle readings for Liquid A: 52°, 51°, 53°, 52°, 63°. Evaluate this data and calculate the best estimate for the refractive index.',marks:3}
+   ],
+   answer:'(a) With a semicircular block, rays aimed at the centre of the flat face travel straight through the curved surface without refraction (they hit it along the normal) ✓. This means the angle of incidence on the flat face is the only angle you need to measure — you can vary it easily and it equals the true angle inside the glass ✓.\n(b) At the critical angle: sin C = n₂/n₁ (from glass to liquid). Here n₁ = 1.50 (glass), C = 52°.\nsin 52° = n₂/1.50 ✓\n0.788 = n₂/1.50\nn₂ = 0.788 × 1.50 = 1.18 ✓✓\n(c) 63° is an anomalous result — it is much larger than the other four readings (which are all 51–53°) ✓. Exclude it from the mean. Mean of 52, 51, 53, 52 = 208 ÷ 4 = 52° ✓. n₂ = sin 52° × 1.50 = 0.788 × 1.50 = 1.18 ✓ (same answer as (b) — the anomaly had little effect here because the mean is the same).'}
+];
+
+/* ═══════ STATE ═══════ */
+var ragScores={}, mcqScores={};
+
+/* ═══════ NAVIGATION ═══════ */
+function sp(id){
+  document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('on')});
+  document.querySelectorAll('.nb').forEach(function(b){b.classList.remove('on')});
+  document.getElementById('pg-'+id).classList.add('on');
+  var m={ko:0,sa:1,mcq:2,eq:3,sm:4};
+  document.querySelectorAll('.nb')[m[id]].classList.add('on');
+  window.scrollTo(0,0);
+}
+
+/* ═══════ BUILD SA ═══════ */
+function buildSA(){
+  var c=document.getElementById('sa-wrap');c.innerHTML='';
+  RAG.forEach(function(sec){
+    var wrap=document.createElement('div');wrap.className='rag-section';
+    var head=document.createElement('div');head.className='rag-header';
+    head.style.background=sec.color;head.textContent=sec.label;
+    var body=document.createElement('div');body.className='rag-body';
+    sec.skills.forEach(function(sk){
+      var row=document.createElement('div');row.className='rag-row';
+      row.innerHTML='<span class="rag-skill">'+sk.tx+'</span>'
+        +'<div class="rag-btns">'
+        +'<button class="rb2" onclick="setRAG(\''+sk.id+'\',\'g\',this)">G</button>'
+        +'<button class="rb2" onclick="setRAG(\''+sk.id+'\',\'a\',this)">A</button>'
+        +'<button class="rb2" onclick="setRAG(\''+sk.id+'\',\'r\',this)">R</button>'
+        +'</div>';
+      body.appendChild(row);
+    });
+    wrap.appendChild(head);wrap.appendChild(body);c.appendChild(wrap);
+  });
+}
+
+function setRAG(id,v,btn){
+  ragScores[id]=v;
+  btn.parentElement.querySelectorAll('button').forEach(function(b){b.classList.remove('rg','ra','rr')});
+  btn.classList.add(v==='g'?'rg':v==='a'?'ra':'rr');
+}
+
+/* ═══════ BUILD MCQ ═══════ */
+function buildMCQ(){
+  var c=document.getElementById('mcq-wrap');c.innerHTML='';
+  MCQ.forEach(function(q,i){
+    var d=document.createElement('div');d.className='qb';
+    var h='<div class="q-num">'+q.tp+' · Question '+(i+1)+' of '+MCQ.length+'</div>'
+      +'<p class="qt">'+q.q+'</p>';
+    q.os.forEach(function(o,j){
+      h+='<button class="ob" onclick="chkMCQ(\''+q.id+'\','+j+','+q.c+',this,\'fb-'+q.id+'\')">'+String.fromCharCode(65+j)+') '+o+'</button>';
+    });
+    h+='<div class="fb" id="fb-'+q.id+'"></div>';
+    d.innerHTML=h;c.appendChild(d);
+  });
+}
+
+function chkMCQ(qid,ch,co,btn,fbid){
+  btn.parentElement.querySelectorAll('.ob').forEach(function(b){b.disabled=true});
+  var fb=document.getElementById(fbid);fb.classList.add('on');
+  var q=MCQ.filter(function(x){return x.id===qid})[0];
+  if(ch===co){
+    btn.classList.add('oc');fb.className='fb on fbc';
+    fb.innerHTML='<strong>✓ Correct!</strong> '+q.ex;mcqScores[qid]=true;
+  } else {
+    btn.classList.add('ow');
+    btn.parentElement.querySelectorAll('.ob')[co].classList.add('orc');
+    fb.className='fb on fbw';
+    fb.innerHTML='<strong>✗ Incorrect.</strong> '+q.ex;mcqScores[qid]=false;
+  }
+}
+
+/* ═══════ BUILD EQ ═══════ */
+function buildEQ(){
+  var c=document.getElementById('eq-wrap');c.innerHTML='';
+  var dm={1:'diff-1',2:'diff-2',3:'diff-3',4:'diff-4'};
+  EQ.forEach(function(q,i){
+    var wrap=document.createElement('div');wrap.className='eq-wrap';
+    var ansHtml=q.answer.replace(/\n/g,'<br>');
+    var plist='';
+    q.parts.forEach(function(p){
+      plist+='<li><span class="part-label">'+p.label+'</span>'+p.text
+        +(p.marks?'<span class="marks">['+p.marks+' mark'+(p.marks>1?'s':'')+']</span>':'')+'</li>';
+    });
+    wrap.innerHTML='<div class="eq-box">'
+      +'<div class="eq-header">'
+      +'<span class="eq-num">Question '+(i+1)+' of '+EQ.length+' — '+q.topic+'</span>'
+      +'<div style="display:flex;gap:6px;align-items:center">'
+      +'<span class="eq-diff '+dm[q.diff]+'">'+q.dlabel+'</span>'
+      +'<span class="eq-marks">'+q.marks+' mark'+(q.marks>1?'s':'')+'</span>'
+      +'</div></div>'
+      +'<div class="eq-body">'
+      +'<div class="eq-stem"><p>'+q.stem.replace(/\n/g,'</p><p>')+'</p></div>'
+      +'<ul class="eq-parts">'+plist+'</ul>'
+      +'<div class="answer-reveal">'
+      +'<button class="reveal-btn" onclick="toggleAnswer(\'ans-'+q.id+'\',this)">'
+      +'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>'
+      +'Reveal mark scheme answer</button>'
+      +'<div class="answer-box" id="ans-'+q.id+'">'
+      +'<h4>✓ Mark scheme answer</h4>'
+      +'<p>'+ansHtml+'</p>'
+      +'<div class="mark-scheme">Each ✓ represents one mark. Look for key words and phrases.</div>'
+      +'</div></div></div></div>';
+    c.appendChild(wrap);
+  });
+}
+
+function toggleAnswer(id,btn){
+  var box=document.getElementById(id);
+  if(box.classList.contains('on')){
+    box.classList.remove('on');
+    btn.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Reveal mark scheme answer';
+  } else {
+    box.classList.add('on');
+    btn.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>Hide answer';
+  }
+}
+
+/* ═══════ BUILD SUMMARY ═══════ */
+function bs(){
+  var allRAG=Object.values(ragScores);
+  var totG=allRAG.filter(function(v){return v==='g'}).length;
+  var totA=allRAG.filter(function(v){return v==='a'}).length;
+  var totR=allRAG.filter(function(v){return v==='r'}).length;
+  var totSkills=0;RAG.forEach(function(s){totSkills+=s.skills.length});
+  var mcqRight=Object.values(mcqScores).filter(function(v){return v}).length;
+  var mcqTotal=MCQ.length;
+  var mcqPct=mcqTotal>0?Math.round(mcqRight/mcqTotal*100):0;
+  var col=mcqPct>=70?'#166534':mcqPct>=50?'#92400e':'#991b1b';
+  var bg=mcqPct>=70?'#f0fdf4':mcqPct>=50?'#fffbeb':'#fef2f2';
+  var lbl=mcqPct>=70?'Strong — focus on Snell\'s Law and TIR calculations.':mcqPct>=50?'Good progress — revisit amber/red skills and retry questions.':'Focus revision on red areas — re-read the KO then retry.';
+
+  var topicMap=[
+    {lb:'Reflection — Law & Diagrams',skills:['r1a','r1b','r1c','r1d'],mcq:['m1','m2','m3','m4']},
+    {lb:'Refraction — Rules & Diagrams',skills:['r2a','r2b','r2c','r2d'],mcq:['m5','m6','m7','m14']},
+    {lb:'Total Internal Reflection',skills:['r3a','r3b','r3c','r3d'],mcq:['m8','m9','m10','m13']},
+    {lb:"Snell's Law & Refractive Index",skills:['r4a','r4b','r4c','r4d'],mcq:['m11','m12','m15']}
+  ];
+
+  var rows='';var strong=[];var weak=[];var developing=[];
+  topicMap.forEach(function(t){
+    var sv=t.skills.map(function(id){return ragScores[id]}).filter(Boolean);
+    var mv=t.mcq.map(function(id){return mcqScores[id]}).filter(function(v){return v!==undefined});
+    var ragG=sv.filter(function(v){return v==='g'}).length;
+    var ragA=sv.filter(function(v){return v==='a'}).length;
+    var ragR=sv.filter(function(v){return v==='r'}).length;
+    var mcqP=mv.length?mv.filter(function(v){return v}).length/mv.length:null;
+    var st,pc;
+    if(mcqP!==null){
+      if(mcqP>=0.75){st='Strong';pc='pig';}
+      else if(mcqP>=0.5){st='Developing';pc='pia';}
+      else{st='Needs work';pc='pir';}
+    } else if(ragG===t.skills.length&&t.skills.length>0){st='Self-confident';pc='pig';}
+    else if(ragR>0){st='Needs work';pc='pir';}
+    else if(ragA>0){st='Developing';pc='pia';}
+    else{st='Not assessed';pc='pia';}
+    var ragStr=sv.length?' <span style="font-size:11px;color:#9ca3af">('+ragG+'G/'+ragA+'A/'+ragR+'R)</span>':'';
+    rows+='<div class="tr2"><span style="font-size:14px;font-weight:500">'+t.lb+ragStr+'</span><span class="pill '+pc+'">'+st+'</span></div>';
+    if(st==='Strong'||st==='Self-confident')strong.push(t.lb);
+    else if(st==='Developing')developing.push(t.lb);
+    if(st==='Needs work')weak.push(t.lb);
+  });
+
+  var html='<div class="g3" style="margin-bottom:16px">'
+    +'<div class="stat-card"><div class="stat-label">MCQ Score</div><div class="stat-val">'+mcqRight+'/'+mcqTotal+'</div></div>'
+    +'<div class="stat-card"><div class="stat-label">MCQ Percentage</div><div class="stat-val" style="color:'+col+'">'+mcqPct+'%</div></div>'
+    +'<div class="stat-card" style="background:'+bg+'"><div class="stat-label">Verdict</div><div style="font-size:12px;font-weight:700;color:'+col+';margin-top:6px;line-height:1.4">'+lbl+'</div></div>'
+    +'</div>'
+    +'<div class="g3" style="margin-bottom:16px">'
+    +'<div class="stat-card"><div class="stat-label">Skills rated</div><div class="stat-val">'+allRAG.length+'/'+totSkills+'</div>'
+    +'<div class="prog-wrap"><div class="prog-bar" style="width:'+Math.round(allRAG.length/totSkills*100)+'%;background:#0d9488"></div></div>'
+    +'</div>'
+    +'<div class="stat-card"><div class="stat-label">Confident (Green)</div><div class="stat-val" style="color:#16a34a">'+totG+'</div>'
+    +'<div class="prog-wrap"><div class="prog-bar" style="width:'+Math.round(totG/totSkills*100)+'%;background:#22c55e"></div></div>'
+    +'</div>'
+    +'<div class="stat-card"><div class="stat-label">Need work (A+R)</div><div class="stat-val" style="color:#dc2626">'+(totA+totR)+'</div>'
+    +'<div class="prog-wrap"><div class="prog-bar" style="width:'+Math.round((totA+totR)/totSkills*100)+'%;background:#ef4444"></div></div>'
+    +'</div></div>'
+    +'<div class="st" style="font-size:11px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px">Topic-by-topic breakdown</div>'
+    +'<div class="card">'+rows+'</div>';
+
+  if(strong.length){html+='<div class="card c-green" style="margin-top:12px"><h3 style="color:#166534;margin-bottom:8px">✓ Topics you know well</h3><p style="font-size:13px;color:#374151;line-height:1.7">'+strong.join('<br>')+'</p></div>';}
+  if(developing.length){html+='<div class="card c-amber" style="margin-top:12px"><h3 style="color:#92400e;margin-bottom:8px">~ Topics to consolidate</h3><p style="font-size:13px;color:#374151;line-height:1.7">'+developing.join('<br>')+'</p><p style="font-size:13px;color:#6b7280;margin-top:6px">Re-read the KO section, then attempt the relevant exam questions and check with the mark scheme.</p></div>';}
+  if(weak.length){html+='<div class="card c-red" style="margin-top:12px"><h3 style="color:#991b1b;margin-bottom:8px">✗ Priority topics to revise</h3><p style="font-size:13px;color:#374151;line-height:1.7">'+weak.join('<br>')+'</p><p style="font-size:13px;color:#6b7280;margin-top:8px">Action: KO → re-read the section → write key facts from memory → retry MCQ → work through exam questions with mark scheme.</p></div>';}
+  if(!allRAG.length&&!Object.keys(mcqScores).length){html='<div class="card c-amber"><p style="font-size:13px;color:#92400e">Complete the Self-Assessment and Multiple Choice Questions first to see your full personalised breakdown here.</p></div>';}
+
+  html+='<div class="card" style="margin-top:14px;background:linear-gradient(135deg,#f0fdfa,#f0fdf4);border:1px solid #99f6e4">'
+    +'<h3 style="color:#0f766e;margin-bottom:10px">📋 Key exam tips — Reflection &amp; Refraction</h3>'
+    +'<div style="font-size:13px;color:#374151;line-height:1.9">'
+    +'<p><strong>Law of Reflection:</strong> i = r. ALWAYS measure from the normal — never from the surface. Draw the normal as a dashed line perpendicular to the surface.</p>'
+    +'<p><strong>Refraction direction rules:</strong> Air→glass = toward normal (slows). Glass→air = away from normal (speeds up). Along normal = no bending.</p>'
+    +'<p><strong>Lateral displacement:</strong> Through a parallel block → emergent ray is parallel to incident ray but shifted sideways.</p>'
+    +'<p><strong>TIR conditions:</strong> Must be denser→less dense AND angle &gt; critical angle. Both conditions needed.</p>'
+    +'<p><strong>Snell\'s Law:</strong> n = sin i ÷ sin r. Use SINE of angles — never just divide the angles directly.</p>'
+    +'<p><strong>Refractive index:</strong> n = c ÷ v. Higher n = slower speed in medium = more bending.</p>'
+    +'<p><strong>Critical angle:</strong> sin C = 1/n. Higher n = smaller critical angle = TIR occurs more easily.</p>'
+    +'<p><strong>Plane mirror image:</strong> Virtual, same size, same distance behind mirror, upright, laterally inverted.</p>'
+    +'<p><strong>Frequency never changes</strong> when light crosses a boundary — only speed and wavelength change.</p>'
+    +'</div></div>';
+
+  html+='<div style="text-align:center;margin-top:24px"><button class="ab" onclick="sp(\'ko\')">Back to Knowledge Organiser →</button></div>';
+  document.getElementById('sm-wrap').innerHTML=html;
+}
+
+buildSA();buildMCQ();buildEQ();
+</script>
+</body>
+</html>
